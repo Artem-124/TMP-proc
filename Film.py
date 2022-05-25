@@ -42,5 +42,14 @@ def film_record_to_file(film, file):
         if film.wayToCreate == wayToCreate.puppet:
             file.write("Кукольный\n")
         if film.wayToCreate == wayToCreate.plasticine:
-            file.write("Пластилиновый\n")    
-    file.write('\n') 
+            file.write("Пластилиновый\n")
+    file.write(f"Количество гласных в названии: {number_of_voves(film.title)}\n")    
+    file.write('\n')
+
+def number_of_voves(title):
+    voves = 'аеёиоуыэюя'
+    num = 0
+    for i in range(len(title)):
+        if title[i] in voves:
+            num += 1
+    return num        
