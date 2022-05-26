@@ -1,4 +1,4 @@
-from Film import film_get_from_file, film_record_to_file
+from Film import film_get_from_file, film_record_to_file, number_of_voves
 
 class Array:
     def __init__(self, maxSize):
@@ -29,3 +29,9 @@ def Array_record_to_file(array, file):
     file.write(f"Записано {array.size} фильмов\n\n")
     for i in range(array.size):
         film_record_to_file(array.content[i], file)
+
+def Array_sort(array):
+    for j in range(1, array.size):
+        for i in range(array.size - j):
+            if number_of_voves(array.content[i].title) > number_of_voves(array.content[i + 1].title):
+                array.content[i], array.content[i + 1] = array.content[i + 1], array.content[i]

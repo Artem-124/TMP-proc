@@ -49,7 +49,7 @@ def film_record_to_file(film, file):
 def number_of_voves(title):
     voves = 'аеёиоуыэюя'
     num = 0
-    for i in range(len(title)):
-        if title[i] in voves:
+    for letter in title:
+        if letter in voves:
             num += 1
     return num        
