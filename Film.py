@@ -17,6 +17,11 @@ class Cartoon:
         self.way_to_create = None
 
 
+class Doсumentary:
+    def __init__(self):
+        self.year = 1900
+
+
 class WayToCreate(Enum):
     drawn = 1
     puppet = 2
@@ -32,6 +37,9 @@ def film_get_from_file(type, file):
     if type == 2:
         film.void = Cartoon()
         film.way_to_create  = WayToCreate(int(file.readline()))
+    if type == 3:
+        film.void = Doсumentary()
+        film.year = int(file.readline())
     return film
 
 def film_record_to_file(film, file):
@@ -47,6 +55,9 @@ def film_record_to_file(film, file):
             file.write("Кукольный\n")
         if film.way_to_create == WayToCreate.plasticine:
             file.write("Пластилиновый\n")
+    if film.type == 3:
+        file.write("Документальный фильм\n")
+        file.write(f"Год: {film.year}\n")            
     file.write(f"Количество гласных в названии: {number_of_vowels(film.title)}\n")    
     file.write('\n')
 
@@ -60,3 +71,5 @@ def number_of_vowels(title):
 
 def comparator(a, b):
     return number_of_vowels(a.title) > number_of_vowels(b.title)        
+       
+    
