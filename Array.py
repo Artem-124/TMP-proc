@@ -30,6 +30,22 @@ def Array_record_to_file(array, file):
     for i in range(array.size):
         film_record_to_file(array.content[i], file)
 
+def Array_only_one_type_record_to_file(array, file, type):
+        if type == 0:
+            Array_record_to_file(array, file)
+            return
+        num = 0
+        for i in range(array.size):
+            if array.content[i].type == type:
+                film_record_to_file(array.content[i], file)
+                num += 1
+        if num == 1:
+            file.write(f"\nЗаписан {num} фильм\n")
+        if num > 1 and num <= 4:
+            file.write(f"\nЗаписано {num} фильма\n")
+        if num >= 5:
+            file.write(f"\nЗаписано {num} фильмов\n")
+
 def Array_sort(array):
     for j in range(1, array.size):
         for i in range(array.size - j):

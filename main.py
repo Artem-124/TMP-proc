@@ -17,6 +17,6 @@ infile.close()
 Array_sort(a)
 
 outfile = open(outfile, 'w', encoding = "utf-8")
-Array_record_to_file(a, outfile)
+Array_only_one_type_record_to_file(a, outfile, 1) #0 - все фильмы
 outfile.close()
 Array_clear(a)
