@@ -1,13 +1,13 @@
-from Film import film_get_from_file, film_record_to_file
+from Film import *
 
 class Array:
-    def __init__(self, maxSize):
+    def __init__(self, max_size):
         self.size = 0
         self.content = []
-        self.maxSize = maxSize
+        self.max_size = max_size
 
 def Array_append(Array, element):
-    if Array.size < Array.maxSize:
+    if Array.size < Array.max_size:
         Array.size += 1
         Array.content.append(element)
     else:
@@ -29,3 +29,9 @@ def Array_record_to_file(array, file):
     file.write(f"Записано {array.size} фильмов\n\n")
     for i in range(array.size):
         film_record_to_file(array.content[i], file)
+
+def Array_sort(array):
+    for j in range(1, array.size):
+        for i in range(array.size - j):
+            if comparator(array.content[i], array.content[i + 1]):
+                array.content[i], array.content[i + 1] = array.content[i + 1], array.content[i]

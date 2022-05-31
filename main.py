@@ -1,5 +1,5 @@
 import sys
-from Array import Array, Array_fill, Array_record_to_file, Array_clear
+from Array import *
 
 if len(sys.argv) != 3:
     print('\nФайлы ввода/вывода не выбраны! Будут использованы стандартные in.txt и out.txt\n')
@@ -14,6 +14,7 @@ a = Array(10)
 Array_fill(a, infile)
 print(f"В контейнер записано {a.size} фильмов\n")
 infile.close()
+Array_sort(a)
 
 outfile = open(outfile, 'w', encoding = "utf-8")
 Array_record_to_file(a, outfile)
