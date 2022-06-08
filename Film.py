@@ -29,7 +29,7 @@ class WayToCreate(Enum):
     plasticine = 3
 
 
-def film_get_from_file(type, file):
+def Film_get_from_file(type, file):
     film = Film(type)
     film.title = file.readline()
     film.country = file.readline()
@@ -44,7 +44,7 @@ def film_get_from_file(type, file):
         film.year = int(file.readline())
     return film
 
-def film_record_to_file(film, file):
+def Film_record_to_file(film, file):
     file.write(film.title)
     file.write(f"Страна: {film.country}")
     if film.type == 1:

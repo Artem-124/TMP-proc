@@ -1,4 +1,5 @@
 import sys
+
 from Array import *
 
 if len(sys.argv) != 3:

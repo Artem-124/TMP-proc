@@ -21,14 +21,14 @@ def Array_fill(Array, file):
     type = file.readline()
     while type != '' and type != '\n':
         type = int(type)
-        film = film_get_from_file(type, file)
+        film = Film_get_from_file(type, file)
         Array_append(Array, film)
         type = file.readline()
 
 def Array_record_to_file(array, file):
     file.write(f"Записано {array.size} фильмов\n\n")
     for i in range(array.size):
-        film_record_to_file(array.content[i], file)
+        Film_record_to_file(array.content[i], file)
 
 def Array_only_one_type_record_to_file(array, file, type):
         if type == 0:
@@ -37,7 +37,7 @@ def Array_only_one_type_record_to_file(array, file, type):
         num = 0
         for i in range(array.size):
             if array.content[i].type == type:
-                film_record_to_file(array.content[i], file)
+                Film_record_to_file(array.content[i], file)
                 num += 1
         if num == 1:
             file.write(f"\nЗаписан {num} фильм\n")
