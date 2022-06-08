@@ -15,7 +15,7 @@ def Array_append(Array, element):
 
 def Array_clear(Array):
     Array.size = 0
-    Array.data = []
+    Array.content = []
 
 def Array_fill(Array, file):
     type = file.readline()
